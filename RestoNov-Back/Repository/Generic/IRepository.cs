@@ -15,7 +15,7 @@ namespace RestoNov_Back.Repository
 
         Task Create(TEntity entity);
 
-        Task Update(int id, TEntity entity);
+        Task Update(Guid id, TEntity entity);
 
         Task Delete(Guid id);
     }

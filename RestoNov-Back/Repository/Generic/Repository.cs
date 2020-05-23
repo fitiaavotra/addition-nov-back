@@ -35,7 +35,7 @@ namespace RestoNov_Back.Repository.Generic
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task Update(int id, TEntity entity)
+        public async Task Update(Guid id, TEntity entity)
         {
             _dbContext.Set<TEntity>().Update(entity);
             await _dbContext.SaveChangesAsync();

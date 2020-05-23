@@ -32,21 +32,22 @@ namespace RestoNov_Back.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Recette obj)
         {
+            await _recetteRepository.Create(obj);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] Recette obj)
+        public async Task<IActionResult> Put(Guid id, [FromBody] Recette obj)
         {
-          
+            await _recetteRepository.Update(id, obj);
             return Ok();
         }
 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            
+            await _recetteRepository.Delete(id);
             return Ok();
         }
 
