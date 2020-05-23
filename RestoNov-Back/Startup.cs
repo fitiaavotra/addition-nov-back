@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RestoNov_Back.Models;
+using RestoNov_Back.Repository.Recette;
 
 namespace RestoNov_Back
 {
@@ -34,6 +35,7 @@ namespace RestoNov_Back
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
             services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(Configuration["ConnectionString:DefaultConnection"]));
+            services.AddScoped<IRecetteRepository, RecetteRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
