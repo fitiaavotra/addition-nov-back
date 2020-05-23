@@ -15,6 +15,8 @@ namespace RestoNov_Back.Models
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public List<IngredientRecette> IngredientRecette { get; set; }
     }
 
 
@@ -26,6 +28,8 @@ namespace RestoNov_Back.Models
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public List<IngredientRecette> IngredientRecette { get; set; }
     }
 
     public class IngredientRecette
@@ -33,8 +37,12 @@ namespace RestoNov_Back.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-        public Guid IdRecette { get; set; }
+        public Guid RecetteId { get; set; }
 
-        public Guid IdIngredient { get; set; }
+        public Guid IngredientId { get; set; }
+
+        public Ingredient Ingredient {get;set;}
+
+        public Recette Recette { get; set; }
     }
 }

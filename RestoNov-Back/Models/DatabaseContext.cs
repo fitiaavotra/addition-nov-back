@@ -14,5 +14,28 @@ namespace RestoNov_Back.Models
         public DbSet<Ingredient> Ingredients { get; set; }
 
         public DbSet<IngredientRecette> IngredientRecettes { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            var Recette = new List<Recette>();
+
+
+            var Ingredient = new List<Ingredient>();
+
+            
+            var IngredientRecette = new List<IngredientRecette>();
+
+
+            Initialiser.SetValue(Recette, Ingredient, IngredientRecette);
+
+            modelBuilder.Entity<Recette>().HasData(Recette);
+            modelBuilder.Entity<Ingredient>().HasData(Ingredient);
+            modelBuilder.Entity<IngredientRecette>().HasData(IngredientRecette);
+
+
+
+        }
     }
 }
