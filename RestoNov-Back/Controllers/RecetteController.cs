@@ -29,6 +29,14 @@ namespace RestoNov_Back.Controllers
             return _recetteRepository.GetAll();
         }
 
+        
+        [HttpGet]
+        [Route("GetDetail")]
+        public async Task<IEnumerable<Ingredient>> GetDetail(Guid Id)
+        {
+            return _recetteRepository.GetIngredient(Id);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Recette obj)
         {

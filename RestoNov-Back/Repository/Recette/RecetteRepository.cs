@@ -16,5 +16,11 @@ namespace RestoNov_Back.Repository.Recette
         {
 
         }
+
+
+        public List<Ingredient> GetIngredient(Guid IdRecette)
+        {
+            return _dbContext.IngredientRecettes.Where(d => d.RecetteId == IdRecette).Select(d => d.Ingredient).ToList();
+        }
     }
 }
